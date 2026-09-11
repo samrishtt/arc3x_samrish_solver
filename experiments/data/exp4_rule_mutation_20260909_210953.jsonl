@@ -1,0 +1,5 @@
+{"experiment": "rule_mutation", "seed": 0, "learning_phase": 20, "recovery_steps": 30, "recovered": false, "prediction_errors": 47, "timestamp": "20260909_210953"}
+{"experiment": "rule_mutation", "seed": 1, "learning_phase": 20, "recovery_steps": 30, "recovered": false, "prediction_errors": 47, "timestamp": "20260909_210953"}
+{"experiment": "rule_mutation", "seed": 2, "learning_phase": 20, "recovery_steps": 30, "recovered": false, "prediction_errors": 47, "timestamp": "20260909_210953"}
+{"experiment": "rule_mutation", "seed": 3, "learning_phase": 20, "recovery_steps": 30, "recovered": false, "prediction_errors": 47, "timestamp": "20260909_210953"}
+{"experiment": "rule_mutation", "seed": 4, "learning_phase": 20, "recovery_steps": 30, "recovered": false, "prediction_errors": 47, "timestamp": "20260909_210953"}

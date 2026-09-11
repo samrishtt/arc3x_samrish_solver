@@ -1,0 +1,129 @@
+{
+  "strategy_comparison": {
+    "Baseline_Random": {
+      "success_rate": 0.0,
+      "mean_steps": 50.0,
+      "median_steps": 50.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "mean_confidence": 0.0,
+      "n_seeds": 5
+    },
+    "A_Random": {
+      "success_rate": 0.0,
+      "mean_steps": 50.0,
+      "median_steps": 50.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "mean_confidence": 0.02898313311491324,
+      "n_seeds": 5
+    },
+    "B_Greedy": {
+      "success_rate": 0.0,
+      "mean_steps": 50.0,
+      "median_steps": 50.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "mean_confidence": 0.031248749999999985,
+      "n_seeds": 5
+    },
+    "C_Uncertainty": {
+      "success_rate": 0.0,
+      "mean_steps": 50.0,
+      "median_steps": 50.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "mean_confidence": 0.031248749999999992,
+      "n_seeds": 5
+    },
+    "D_Disagreement": {
+      "success_rate": 1.0,
+      "mean_steps": 3.0,
+      "median_steps": 3.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "mean_confidence": 0.02777777777777778,
+      "n_seeds": 5
+    },
+    "E_InfoGain": {
+      "success_rate": 1.0,
+      "mean_steps": 3.0,
+      "median_steps": 3.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "mean_confidence": 0.02777777777777778,
+      "n_seeds": 5
+    }
+  },
+  "rule_mutation": {
+    "adaptation_rate": 0.0,
+    "mean_recovery_steps": 30.0,
+    "median_recovery_steps": 30.0,
+    "std_recovery_steps": 0.0,
+    "ci_95": 0.0,
+    "mean_prediction_errors": 47.0,
+    "n_seeds": 5
+  },
+  "structural_transfer": {
+    "transfer_success_rate": 1.0,
+    "mean_transfer_steps": 3.0,
+    "median_transfer_steps": 3.0,
+    "std_transfer_steps": 0.0,
+    "ci_95": 0.0,
+    "n_seeds": 5
+  },
+  "ablation": {
+    "Full System": {
+      "success_rate": 1.0,
+      "mean_steps": 3.0,
+      "median_steps": 3.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "n_seeds": 5
+    },
+    "No Active Selection": {
+      "success_rate": 0.0,
+      "mean_steps": 50.0,
+      "median_steps": 50.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "n_seeds": 5
+    },
+    "No Uncertainty (Point Est)": {
+      "success_rate": 1.0,
+      "mean_steps": 3.0,
+      "median_steps": 3.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "n_seeds": 5
+    },
+    "No Mental Simulator": {
+      "success_rate": 0.0,
+      "mean_steps": 50.0,
+      "median_steps": 50.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "n_seeds": 5
+    },
+    "No Memory": {
+      "success_rate": 1.0,
+      "mean_steps": 3.0,
+      "median_steps": 3.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "n_seeds": 5
+    },
+    "No Self-Correction": {
+      "success_rate": 1.0,
+      "mean_steps": 3.0,
+      "median_steps": 3.0,
+      "std_steps": 0.0,
+      "ci_95": 0.0,
+      "n_seeds": 5
+    }
+  },
+  "metadata": {
+    "seeds": 5,
+    "timestamp": "2026-09-09 21:10:00"
+  }
+}

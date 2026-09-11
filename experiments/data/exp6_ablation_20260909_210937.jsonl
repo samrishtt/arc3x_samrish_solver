@@ -1,0 +1,18 @@
+{"experiment": "ablation", "config": "Full System", "seed": 0, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "Full System", "seed": 1, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "Full System", "seed": 2, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 0, "steps": 50, "solved": false, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 1, "steps": 50, "solved": false, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 0, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 1, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 2, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 0, "steps": 50, "solved": false, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 1, "steps": 50, "solved": false, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Memory", "seed": 0, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Memory", "seed": 1, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Memory", "seed": 2, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 0, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 1, "steps": 3, "solved": true, "timestamp": "20260909_210937"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 2, "steps": 3, "solved": true, "timestamp": "20260909_210937"}

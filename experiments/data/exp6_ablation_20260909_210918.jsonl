@@ -1,0 +1,3 @@
+{"experiment": "ablation", "config": "Full System", "seed": 0, "steps": 3, "solved": true, "timestamp": "20260909_210918"}
+{"experiment": "ablation", "config": "Full System", "seed": 1, "steps": 3, "solved": true, "timestamp": "20260909_210918"}
+{"experiment": "ablation", "config": "Full System", "seed": 2, "steps": 3, "solved": true, "timestamp": "20260909_210918"}
