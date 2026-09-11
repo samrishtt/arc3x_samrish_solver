@@ -10,6 +10,7 @@ build/
 *.ipynb_meta/
 
 # Data / scratch
+_clean_stage/
 *.pkl
 *.pickle
 *.mp4

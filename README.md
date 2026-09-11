@@ -2,7 +2,7 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests: 5/5 Passing](https://img.shields.io/badge/tests-5%2F5%20passing-brightgreen.svg)](tests/)
+[![Tests: 6/6 Passing](https://img.shields.io/badge/tests-6%2F6%20passing-brightgreen.svg)](tests/)
 [![Empirical Seeds](https://img.shields.io/badge/monte--carlo-Procedural%20Randomized-purple.svg)](experiments/data/)
 
 > **Fundamental AGI Question:** *Can an autonomous agent discover how an unfamiliar world works by mentally simulating competing hypotheses and deliberately performing experiments where those explanations disagree most?*
@@ -116,8 +116,11 @@ Evaluated across **procedural randomized environments** (randomized entity place
 ├── world_model_lab/                       # Core Research Library
 │   ├── core/types.py                      # Data schemas: Entity, Hypothesis, Rollout, Error
 │   ├── environment/grid_lab.py            # Procedural environment with hidden rules & mutations
+│   ├── agents/active_agent.py             # Active experiment agent (disagreement scoring)
+│   ├── agents/process_rl_agent.py         # Process-reward RL agent with verifiable rewards
 │   ├── perception/extractor.py            # Spatial relation & temporal diff extraction
 │   ├── memory/store.py                    # Episodic memory & semantic contingency tables
+│   ├── memory/persistent_bank.py          # Cross-run persistent memory bank (v1, v2, v3 -> v4)
 │   ├── world_model/hypothesis_manager.py  # All-entity competing hypothesis generator
 │   ├── world_model/simulator.py           # Counterfactual simulator & Gini disagreement
 │   ├── experimentation/selector.py        # 5 comparative experiment selection strategies
@@ -134,11 +137,12 @@ Evaluated across **procedural randomized environments** (randomized entity place
 │   ├── exp6_ablation_*.jsonl              # Component ablation trial logs
 │   └── results_summary_*.json             # Aggregated statistical summaries
 │
-├── tests/                                 # Unit Test Suite
+├── tests/                                 # Unit Test Suite (6/6 Passing)
 │   ├── test_day1_grid_lab.py              # Environment physics & rule mechanics
 │   ├── test_day2_perception_memory.py      # Spatial relation & transition memory
 │   ├── test_day3_world_model.py           # Hypothesis generation & mental rollouts
 │   ├── test_day4_active_loop.py           # End-to-end active experiment loop
+│   ├── test_persistent_memory_and_process_rl.py # Process rewards & version transfer
 │   └── test_arc3x_bridge.py               # 2D frame translation & action bridge
 │
 ├── requirements.txt                       # Project dependencies
@@ -157,12 +161,13 @@ cd arc3x_samrish_solver
 pip install -r requirements.txt
 ```
 
-### 2. Run the Full Unit Test Suite (5/5 Passing)
+### 2. Run the Full Unit Test Suite (6/6 Passing)
 ```bash
 python -m tests.test_day1_grid_lab
 python -m tests.test_day2_perception_memory
 python -m tests.test_day3_world_model
 python -m tests.test_day4_active_loop
+python -m tests.test_persistent_memory_and_process_rl
 python -m tests.test_arc3x_bridge
 ```
 
