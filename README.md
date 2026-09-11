@@ -2,7 +2,7 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests: 6/6 Passing](https://img.shields.io/badge/tests-6%2F6%20passing-brightgreen.svg)](tests/)
+[![Tests: 7/7 Passing](https://img.shields.io/badge/tests-7%2F7%20passing-brightgreen.svg)](tests/)
 [![Empirical Seeds](https://img.shields.io/badge/monte--carlo-Procedural%20Randomized-purple.svg)](experiments/data/)
 
 > **Fundamental AGI Question:** *Can an autonomous agent discover how an unfamiliar world works by mentally simulating competing hypotheses and deliberately performing experiments where those explanations disagree most?*
@@ -102,6 +102,19 @@ Evaluated across **procedural randomized environments** (randomized entity place
                                        └──────────────────┘  - Model Collapse: Re-generation
 ```
 
+### 🗄️ Hierarchical 4-Tier Memory Architecture
+
+To prevent context window bloat and catastrophic memory drift, the agent implements a strict four-tiered memory hierarchy:
+
+| Layer | Purpose | Lifetime | Distillation Mechanism |
+| :--- | :--- | :--- | :--- |
+| **`run_memory`** | Temporary observations, transitions & errors from current execution | One run | Purged after run distillation; prevents raw transcript context overflow |
+| **`game_memory`** | Distilled causal rules & discoveries for one game/environment | Across versions ($v_1 \to v_N$) | Stores verified rule signatures, interaction contingencies & success priors |
+| **`global_memory`** | General domain invariants & epistemic strategies across games | Across entire project | Tracks meta-heuristics (e.g. predictive disagreement efficacy, collision physics) |
+| **`submission_memory`** | Read-only immutable snapshot compiled for competition | Frozen at submission | Locks parameters, prevents test-time drift, guarantees deterministic evaluation |
+
+> **Context Preservation Invariant:** Raw execution trajectories are never dumped verbatim into persistent context. Instead, only distilled causal invariants and Bayesian confidence distributions are promoted across runs and versions.
+
 ---
 
 ## 📁 Repository Structure
@@ -121,6 +134,7 @@ Evaluated across **procedural randomized environments** (randomized entity place
 │   ├── perception/extractor.py            # Spatial relation & temporal diff extraction
 │   ├── memory/store.py                    # Episodic memory & semantic contingency tables
 │   ├── memory/persistent_bank.py          # Cross-run persistent memory bank (v1, v2, v3 -> v4)
+│   ├── memory/hierarchical_memory.py      # 4-tier taxonomy (run, game, global, submission)
 │   ├── world_model/hypothesis_manager.py  # All-entity competing hypothesis generator
 │   ├── world_model/simulator.py           # Counterfactual simulator & Gini disagreement
 │   ├── experimentation/selector.py        # 5 comparative experiment selection strategies
@@ -137,12 +151,13 @@ Evaluated across **procedural randomized environments** (randomized entity place
 │   ├── exp6_ablation_*.jsonl              # Component ablation trial logs
 │   └── results_summary_*.json             # Aggregated statistical summaries
 │
-├── tests/                                 # Unit Test Suite (6/6 Passing)
+├── tests/                                 # Unit Test Suite (7/7 Passing)
 │   ├── test_day1_grid_lab.py              # Environment physics & rule mechanics
 │   ├── test_day2_perception_memory.py      # Spatial relation & transition memory
 │   ├── test_day3_world_model.py           # Hypothesis generation & mental rollouts
 │   ├── test_day4_active_loop.py           # End-to-end active experiment loop
 │   ├── test_persistent_memory_and_process_rl.py # Process rewards & version transfer
+│   ├── test_hierarchical_memory.py        # 4-tier memory distillation & freeze
 │   └── test_arc3x_bridge.py               # 2D frame translation & action bridge
 │
 ├── requirements.txt                       # Project dependencies
@@ -161,13 +176,14 @@ cd arc3x_samrish_solver
 pip install -r requirements.txt
 ```
 
-### 2. Run the Full Unit Test Suite (6/6 Passing)
+### 2. Run the Full Unit Test Suite (7/7 Passing)
 ```bash
 python -m tests.test_day1_grid_lab
 python -m tests.test_day2_perception_memory
 python -m tests.test_day3_world_model
 python -m tests.test_day4_active_loop
 python -m tests.test_persistent_memory_and_process_rl
+python -m tests.test_hierarchical_memory
 python -m tests.test_arc3x_bridge
 ```
 
