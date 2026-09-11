@@ -1,0 +1,150 @@
+{"experiment": "ablation", "config": "Full System", "seed": 0, "steps": 29, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 1, "steps": 1, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 3, "steps": 24, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 4, "steps": 23, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 5, "steps": 28, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 6, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 7, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 8, "steps": 30, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 9, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 10, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 11, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 12, "steps": 33, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 13, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 14, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 15, "steps": 32, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 16, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 17, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 18, "steps": 25, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 19, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 20, "steps": 22, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 21, "steps": 4, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 22, "steps": 32, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 23, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "Full System", "seed": 24, "steps": 30, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 0, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 1, "steps": 18, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 3, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 4, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 5, "steps": 33, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 6, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 7, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 8, "steps": 10, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 9, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 10, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 11, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 12, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 13, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 14, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 15, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 16, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 17, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 18, "steps": 22, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 19, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 20, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 21, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 22, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 23, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Active Selection", "seed": 24, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 0, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 1, "steps": 1, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 3, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 4, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 5, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 6, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 7, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 8, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 9, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 10, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 11, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 12, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 13, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 14, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 15, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 16, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 17, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 18, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 19, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 20, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 21, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 22, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 23, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Uncertainty (Point Est)", "seed": 24, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 0, "steps": 27, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 1, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 3, "steps": 24, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 4, "steps": 21, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 5, "steps": 23, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 6, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 7, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 8, "steps": 22, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 9, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 10, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 11, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 12, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 13, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 14, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 15, "steps": 22, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 16, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 17, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 18, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 19, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 20, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 21, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 22, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 23, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Mental Simulator", "seed": 24, "steps": 24, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 0, "steps": 29, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 1, "steps": 1, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 3, "steps": 24, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 4, "steps": 23, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 5, "steps": 28, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 6, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 7, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 8, "steps": 30, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 9, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 10, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 11, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 12, "steps": 33, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 13, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 14, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 15, "steps": 32, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 16, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 17, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 18, "steps": 25, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 19, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 20, "steps": 22, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 21, "steps": 4, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 22, "steps": 32, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 23, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Memory", "seed": 24, "steps": 30, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 0, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 1, "steps": 1, "solved": true, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 2, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 3, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 4, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 5, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 6, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 7, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 8, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 9, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 10, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 11, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 12, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 13, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 14, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 15, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 16, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 17, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 18, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 19, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 20, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 21, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 22, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 23, "steps": 50, "solved": false, "timestamp": "20260911_204422"}
+{"experiment": "ablation", "config": "No Self-Correction", "seed": 24, "steps": 50, "solved": false, "timestamp": "20260911_204422"}

@@ -23,7 +23,7 @@ def _ensure_data_dir():
     os.makedirs(DATA_DIR, exist_ok=True)
 
 
-def _create_env(seed: int, max_steps: int = 50) -> GridLabEnv:
+def _create_env(seed: int, max_steps: int = 50, randomize_layout: bool = True) -> GridLabEnv:
     rule = HiddenRule(
         rule_id="r_adj_red_green",
         condition=ConditionType.ADJACENCY,
@@ -33,7 +33,7 @@ def _create_env(seed: int, max_steps: int = 50) -> GridLabEnv:
         target_color="blue",
         target_new_state="active"
     )
-    return GridLabEnv(size=7, max_steps=max_steps, rules=[rule], seed=seed)
+    return GridLabEnv(size=7, max_steps=max_steps, rules=[rule], randomize_layout=randomize_layout, seed=seed)
 
 
 class AblationStudy:

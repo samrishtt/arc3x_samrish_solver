@@ -96,11 +96,13 @@ class GridLabEnv:
         size: int = 7,
         max_steps: int = 100,
         rules: Optional[List[HiddenRule]] = None,
+        randomize_layout: bool = False,
         seed: int = 42
     ):
         self.size = size
         self.max_steps = max_steps
         self.seed = seed
+        self.randomize_layout = randomize_layout
         self.rng = np.random.RandomState(seed)
         self.step_count = 0
         self.rules = rules or []
@@ -122,51 +124,76 @@ class GridLabEnv:
         self.step_count = 0
         self.entities = []
 
-        # Default entities if none present
-        # Place Agent at (1, 1)
+        if self.randomize_layout:
+            # Sample procedural interior positions
+            cells = [(r, c) for r in range(1, self.size - 1) for c in range(1, self.size - 1)]
+            idx = self.rng.choice(len(cells), size=5, replace=False)
+            positions = [cells[i] for i in idx]
+            # Ensure red and green are not starting adjacent
+            r1, c1 = positions[1]
+            r2, c2 = positions[2]
+            while abs(r1 - r2) + abs(c1 - c2) <= 1:
+                idx = self.rng.choice(len(cells), size=5, replace=False)
+                positions = [cells[i] for i in idx]
+                r1, c1 = positions[1]
+                r2, c2 = positions[2]
+
+            agent_pos = Position(positions[0][0], positions[0][1])
+            red_pos   = Position(positions[1][0], positions[1][1])
+            green_pos = Position(positions[2][0], positions[2][1])
+            blue_pos  = Position(positions[3][0], positions[3][1])
+            yellow_pos = Position(positions[4][0], positions[4][1])
+        else:
+            agent_pos = Position(1, 1)
+            red_pos   = Position(3, 2)
+            green_pos = Position(3, 4)
+            blue_pos  = Position(5, 5)
+            yellow_pos = Position(1, 5)
+
+        # Place Agent
         self.agent = Entity(
             id="agent",
             color="agent",
             shape="agent",
-            pos=Position(1, 1),
+            pos=agent_pos,
             is_agent=True
         )
         self.entities.append(self.agent)
 
-        # Place Red block at (3, 2)
+        # Place Red block
         self.entities.append(Entity(
             id="red_block",
             color="red",
             shape="square",
-            pos=Position(3, 2),
+            pos=red_pos,
             state="normal"
         ))
 
-        # Place Green block at (3, 4)
+        # Place Green block
         self.entities.append(Entity(
             id="green_block",
             color="green",
             shape="circle",
-            pos=Position(3, 4),
+            pos=green_pos,
             state="normal"
         ))
 
-        # Place Blue target at (5, 5)
+        # Place Blue target
         self.entities.append(Entity(
             id="blue_target",
             color="blue",
             shape="triangle",
-            pos=Position(5, 5),
+            pos=blue_pos,
             state="dormant",
             is_static=True
         ))
 
-        # Place Yellow target at (1, 5)
+        # Place Yellow target
         self.entities.append(Entity(
             id="yellow_target",
             color="yellow",
             shape="diamond",
-            pos=Position(1, 5),
+            pos=yellow_pos,
             state="dormant",
             is_static=True
         ))

@@ -35,7 +35,7 @@ def _log_trajectory(filename: str, records: List[Dict[str, Any]]):
             f.write(json.dumps(r) + "\n")
 
 
-def _create_standard_env(seed: int, max_steps: int = 50) -> GridLabEnv:
+def _create_standard_env(seed: int, max_steps: int = 50, randomize_layout: bool = True) -> GridLabEnv:
     rule = HiddenRule(
         rule_id="r_adj_red_green",
         condition=ConditionType.ADJACENCY,
@@ -45,7 +45,7 @@ def _create_standard_env(seed: int, max_steps: int = 50) -> GridLabEnv:
         target_color="blue",
         target_new_state="active"
     )
-    return GridLabEnv(size=7, max_steps=max_steps, rules=[rule], seed=seed)
+    return GridLabEnv(size=7, max_steps=max_steps, rules=[rule], randomize_layout=randomize_layout, seed=seed)
 
 
 def _check_any_entity_activated(obs) -> Optional[str]:
