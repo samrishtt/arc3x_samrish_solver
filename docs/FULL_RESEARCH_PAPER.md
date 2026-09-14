@@ -90,7 +90,7 @@ The objective is not merely to maximize external reward, but to minimize epistem
 ```
 
 ### 3.1 All-Entity Perception & Geometric Relation Extraction
-The perception module converts raw grid matrices into structured entity objects $e = \langle \text{id}, \text{color}, \text{shape}, \text{pos}, \text{state}, \text{is\_agent}, \text{is\_static} \rangle$. It computes:
+The perception module converts raw grid matrices into structured entity objects $e = \langle \text{id}, \text{color}, \text{shape}, \text{pos}, \text{state}, \text{is-agent}, \text{is-static} \rangle$. It computes:
 - Pairwise Manhattan distances: $d(e_i, e_j) = |r_i - r_j| + |c_i - c_j|$.
 - Relational configurations: Adjacency ($d=1$), Contact ($d=0$), and Co-linearity.
 - Temporal state diffs: $\Delta_t = \text{Diff}(o_{t-1}, o_t)$.
@@ -99,7 +99,7 @@ Crucially, perception operates across *all entities simultaneously*, without har
 
 ### 3.2 Hypothesis Space & Belief Distribution
 The agent instantiates a hypothesis space $\mathcal{H}$ representing candidate causal mechanisms:
-$$h_i: \langle \text{condition}, \text{cause\_color}, \text{trigger\_color} \rangle \longrightarrow \langle \text{effect}, \text{target\_color}, \text{new\_state} \rangle$$
+$$h_i: \langle \text{condition}, \text{cause-color}, \text{trigger-color} \rangle \longrightarrow \langle \text{effect}, \text{target-color}, \text{new-state} \rangle$$
 Each hypothesis maintains an empirical confidence $c(h_i) \in [0, 1]$, normalized such that $\sum_{i} c(h_i) = 1.0$.
 
 ### 3.3 Counterfactual Simulation & Gini Disagreement
