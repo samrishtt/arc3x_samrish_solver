@@ -122,22 +122,27 @@ json.dump({"mean_est_score": mean, "results": results},
 
 PHASE2 = '''\
 # ---------------------------------------------------------------------------
-# PHASE 2 - play the graded gateway.
+# PHASE 2 - play the graded gateway (or local offline verification in draft mode).
 #
-# For each graded run: RESET, identify the family from the opening frame
-# (clone IDs are opaque so names cannot be trusted), then replay that family's
-# plan while checking every frame against what the twin predicted. On the first
-# divergence we stop replaying - a plan for a different variant is worse than
-# no plan - and hand over to the student policy, then to random.
+# In a real Kaggle competition submission, the gateway container runs at
+# http://gateway:8001/ and serves the hidden test games.
+# In interactive draft/commit mode, the gateway container does not exist;
+# the runner detects this and runs offline self-verification on local twins.
 # ---------------------------------------------------------------------------
+import os
+import socket
+import time
+from urllib.parse import urlparse
+from pathlib import Path
 import numpy as np
-import arc_agi
-from arc_agi import OperationMode
-from arc3x.runner import build_families, gateway_as_graded, play_game
+import json
+
+from arc3x.runner import build_families, gateway_as_graded, twin_as_graded, play_game
 from arc3x.explore import game_score
 
 BASE_URL = os.environ.get("ARC_BASE_URL", "http://gateway:8001")
 ACTION_CAP = int(os.environ.get("ARC3X_ACTION_CAP", 800))
+IS_RERUN = os.environ.get("KAGGLE_IS_COMPETITION_RERUN", "").strip().lower() in {"1", "true"}
 
 families = build_families(Path(ENV_DIR), plans_path="/kaggle/working/plans.json")
 print(f"{len(families)} families, "
@@ -153,36 +158,82 @@ try:
 except Exception as exc:
     print(f"no student policy ({type(exc).__name__}); fallback will be random")
 
-arcade = arc_agi.Arcade(
-    operation_mode=OperationMode.COMPETITION,
-    arc_base_url=BASE_URL,
-    environments_dir="",
-)
-card = arcade.create_scorecard()
-envs = arcade.get_environments()
-print(f"gateway offers {len(envs)} runs")
+
+def check_gateway(url: str, timeout: float = 3.0) -> bool:
+    try:
+        p = urlparse(url)
+        host = p.hostname or "gateway"
+        port = p.port or 8001
+        with socket.create_connection((host, port), timeout=timeout):
+            return True
+    except Exception:
+        return False
+
+
+# If in competition rerun, wait up to 45s for gateway to boot
+has_gateway = check_gateway(BASE_URL, timeout=2.0)
+if not has_gateway and IS_RERUN:
+    print("Waiting for competition gateway to become ready...")
+    for _ in range(15):
+        time.sleep(3)
+        if check_gateway(BASE_URL, timeout=2.0):
+            has_gateway = True
+            break
 
 played, rng = [], np.random.default_rng(0)
-for i, info in enumerate(envs):
-    gid = info.game_id
-    try:
-        env = arcade.make(gid, scorecard_id=card)
-        if env is None:
-            print(f"  [{i+1}/{len(envs)}] {gid}: make() returned None"); continue
-        res = play_game(gateway_as_graded(env), families, graded_game_id=gid,
-                        action_cap=ACTION_CAP, student=student, rng=rng)
-        played.append(res)
-        print(f"  [{i+1}/{len(envs)}] {gid} fam={res.family} via={res.how} "
-              f"src={res.source} actions={res.actions_used} "
-              f"levels={res.levels_reached}"
-              + (f" DIVERGED@{res.diverged_at}" if res.diverged_at is not None else ""))
-    except Exception as exc:
-        print(f"  [{i+1}/{len(envs)}] {gid}: {type(exc).__name__}: {exc}")
 
-try:
-    arcade.close_scorecard(card)
-except Exception as exc:
-    print(f"close_scorecard: {type(exc).__name__}: {exc}")
+if has_gateway:
+    print(f"Connected to live competition gateway at {BASE_URL}")
+    import arc_agi
+    from arc_agi import OperationMode
+
+    arcade = arc_agi.Arcade(
+        operation_mode=OperationMode.COMPETITION,
+        arc_base_url=BASE_URL,
+        environments_dir="",
+    )
+    card = arcade.create_scorecard()
+    envs = arcade.get_environments()
+    print(f"gateway offers {len(envs)} runs")
+
+    for i, info in enumerate(envs):
+        gid = info.game_id
+        try:
+            env = arcade.make(gid, scorecard_id=card)
+            if env is None:
+                print(f"  [{i+1}/{len(envs)}] {gid}: make() returned None"); continue
+            res = play_game(gateway_as_graded(env), families, graded_game_id=gid,
+                            action_cap=ACTION_CAP, student=student, rng=rng)
+            played.append(res)
+            print(f"  [{i+1}/{len(envs)}] {gid} fam={res.family} via={res.how} "
+                  f"src={res.source} actions={res.actions_used} "
+                  f"levels={res.levels_reached}"
+                  + (f" DIVERGED@{res.diverged_at}" if res.diverged_at is not None else ""))
+        except Exception as exc:
+            print(f"  [{i+1}/{len(envs)}] {gid}: {type(exc).__name__}: {exc}")
+
+    try:
+        arcade.close_scorecard(card)
+        print("Scorecard closed and submitted successfully.")
+    except Exception as exc:
+        print(f"close_scorecard: {type(exc).__name__}: {exc}")
+
+else:
+    print("No competition gateway detected (interactive/draft mode).")
+    print("Running offline self-verification on local twin environments...")
+    from arc3x.explore import discover_games
+    test_games = discover_games(Path(ENV_DIR))[:5]  # verify first 5 games
+    for i, gid in enumerate(test_games):
+        try:
+            graded = twin_as_graded(gid, Path(ENV_DIR))
+            res = play_game(graded, families, graded_game_id=gid,
+                            action_cap=ACTION_CAP, student=student, rng=rng)
+            played.append(res)
+            print(f"  [{i+1}/{len(test_games)}] {gid} fam={res.family} via={res.how} "
+                  f"src={res.source} actions={res.actions_used} "
+                  f"levels={res.levels_reached}")
+        except Exception as exc:
+            print(f"  [{i+1}/{len(test_games)}] {gid}: {type(exc).__name__}: {exc}")
 
 n_div = sum(1 for r in played if r.diverged_at is not None)
 print(f"\\nplayed {len(played)} runs; {n_div} diverged from their family plan")
@@ -190,6 +241,7 @@ print(f"identified by frame: {sum(1 for r in played if r.how=='frame')}, "
       f"by name: {sum(1 for r in played if r.how=='name')}, "
       f"unknown: {sum(1 for r in played if r.how=='unknown')}")
 json.dump([r.__dict__ for r in played], open("/kaggle/working/played.json", "w"), default=str)
+print("Phase 2 finished successfully.")
 '''
 
 HEADER = """\
