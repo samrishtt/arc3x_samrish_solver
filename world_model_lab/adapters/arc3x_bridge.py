@@ -55,6 +55,12 @@ class ARC3xBridge:
         events: Optional[List[str]] = None
     ) -> Observation:
         """Converts an ARC-AGI-3 2D frame into a structured Observation."""
+        frame = np.asarray(frame)
+        if frame.ndim == 3:
+            frame = frame[-1]
+        elif frame.ndim == 1:
+            dim = int(np.sqrt(len(frame)))
+            frame = frame.reshape((dim, dim))
         h, w = frame.shape
         entities: List[Entity] = []
 
