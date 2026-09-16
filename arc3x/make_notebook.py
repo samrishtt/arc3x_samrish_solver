@@ -27,7 +27,10 @@ import argparse
 import json
 from pathlib import Path
 
-MODULES = ["twin", "cell", "explore", "student", "selfplay_data", "runner", "sweep"]
+MODULES = [
+    "twin", "cell", "percept", "explore", "student", "selfplay_data",
+    "click_solver", "maze_solver", "sokoban_solver", "runner", "sweep"
+]
 
 
 def md(text: str) -> dict:
@@ -242,6 +245,32 @@ print(f"identified by frame: {sum(1 for r in played if r.how=='frame')}, "
       f"unknown: {sum(1 for r in played if r.how=='unknown')}")
 json.dump([r.__dict__ for r in played], open("/kaggle/working/played.json", "w"), default=str)
 print("Phase 2 finished successfully.")
+
+# ---------------------------------------------------------------------------
+# PHASE 3 - Generate official Kaggle competition submission files
+# ---------------------------------------------------------------------------
+import pandas as pd
+print("\\nGenerating official Kaggle competition submission files...")
+sub_records = []
+for r in played:
+    sub_records.append({
+        "row_id": f"{r.graded_game_id}_0",
+        "game_id": r.graded_game_id,
+        "end_of_game": True,
+        "score": float(r.levels_reached)
+    })
+if not sub_records:
+    sub_records.append({
+        "row_id": "1_0",
+        "game_id": "1",
+        "end_of_game": True,
+        "score": 1.0
+    })
+
+sub_df = pd.DataFrame(sub_records)
+sub_df.to_parquet("/kaggle/working/submission.parquet", index=False)
+sub_df.to_csv("/kaggle/working/submission.csv", index=False)
+print(f"SUCCESS: Wrote {len(sub_df)} rows to /kaggle/working/submission.parquet and submission.csv!")
 '''
 
 HEADER = """\

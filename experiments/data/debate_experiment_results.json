@@ -1,0 +1,910 @@
+{
+  "random": [
+    {
+      "agent": "random",
+      "seed": 100,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 101,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 102,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 103,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 104,
+      "success": true,
+      "steps": 25,
+      "reward": 0.7499999999999999,
+      "vetoed_actions": 0,
+      "proposals": 25
+    },
+    {
+      "agent": "random",
+      "seed": 105,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 106,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 107,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 108,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 109,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 110,
+      "success": true,
+      "steps": 30,
+      "reward": 0.7,
+      "vetoed_actions": 0,
+      "proposals": 30
+    },
+    {
+      "agent": "random",
+      "seed": 111,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 112,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 113,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 114,
+      "success": true,
+      "steps": 7,
+      "reward": 0.9299999999999999,
+      "vetoed_actions": 0,
+      "proposals": 7
+    },
+    {
+      "agent": "random",
+      "seed": 115,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 116,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 117,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 118,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 119,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 120,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 121,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 122,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 123,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "random",
+      "seed": 124,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    }
+  ],
+  "greedy": [
+    {
+      "agent": "greedy",
+      "seed": 100,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 101,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 102,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 103,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 104,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 105,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 106,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 107,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 108,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 109,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 110,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 111,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 112,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 113,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 114,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 115,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 116,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 117,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 118,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 119,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 120,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 121,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 122,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 123,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "greedy",
+      "seed": 124,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    }
+  ],
+  "world_model": [
+    {
+      "agent": "world_model",
+      "seed": 100,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 101,
+      "success": true,
+      "steps": 31,
+      "reward": 0.69,
+      "vetoed_actions": 0,
+      "proposals": 31
+    },
+    {
+      "agent": "world_model",
+      "seed": 102,
+      "success": true,
+      "steps": 27,
+      "reward": 0.73,
+      "vetoed_actions": 0,
+      "proposals": 27
+    },
+    {
+      "agent": "world_model",
+      "seed": 103,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 104,
+      "success": true,
+      "steps": 9,
+      "reward": 0.91,
+      "vetoed_actions": 0,
+      "proposals": 9
+    },
+    {
+      "agent": "world_model",
+      "seed": 105,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 106,
+      "success": true,
+      "steps": 29,
+      "reward": 0.71,
+      "vetoed_actions": 0,
+      "proposals": 29
+    },
+    {
+      "agent": "world_model",
+      "seed": 107,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 108,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 109,
+      "success": true,
+      "steps": 38,
+      "reward": 0.6199999999999999,
+      "vetoed_actions": 0,
+      "proposals": 38
+    },
+    {
+      "agent": "world_model",
+      "seed": 110,
+      "success": true,
+      "steps": 13,
+      "reward": 0.87,
+      "vetoed_actions": 0,
+      "proposals": 13
+    },
+    {
+      "agent": "world_model",
+      "seed": 111,
+      "success": true,
+      "steps": 28,
+      "reward": 0.72,
+      "vetoed_actions": 0,
+      "proposals": 28
+    },
+    {
+      "agent": "world_model",
+      "seed": 112,
+      "success": true,
+      "steps": 45,
+      "reward": 0.5499999999999998,
+      "vetoed_actions": 0,
+      "proposals": 45
+    },
+    {
+      "agent": "world_model",
+      "seed": 113,
+      "success": true,
+      "steps": 29,
+      "reward": 0.71,
+      "vetoed_actions": 0,
+      "proposals": 29
+    },
+    {
+      "agent": "world_model",
+      "seed": 114,
+      "success": true,
+      "steps": 2,
+      "reward": 0.98,
+      "vetoed_actions": 0,
+      "proposals": 2
+    },
+    {
+      "agent": "world_model",
+      "seed": 115,
+      "success": true,
+      "steps": 26,
+      "reward": 0.74,
+      "vetoed_actions": 0,
+      "proposals": 26
+    },
+    {
+      "agent": "world_model",
+      "seed": 116,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 117,
+      "success": true,
+      "steps": 38,
+      "reward": 0.6199999999999999,
+      "vetoed_actions": 0,
+      "proposals": 38
+    },
+    {
+      "agent": "world_model",
+      "seed": 118,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 119,
+      "success": true,
+      "steps": 30,
+      "reward": 0.7,
+      "vetoed_actions": 0,
+      "proposals": 30
+    },
+    {
+      "agent": "world_model",
+      "seed": 120,
+      "success": true,
+      "steps": 26,
+      "reward": 0.74,
+      "vetoed_actions": 0,
+      "proposals": 26
+    },
+    {
+      "agent": "world_model",
+      "seed": 121,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 122,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "world_model",
+      "seed": 123,
+      "success": true,
+      "steps": 32,
+      "reward": 0.6799999999999999,
+      "vetoed_actions": 0,
+      "proposals": 32
+    },
+    {
+      "agent": "world_model",
+      "seed": 124,
+      "success": true,
+      "steps": 24,
+      "reward": 0.7599999999999999,
+      "vetoed_actions": 0,
+      "proposals": 24
+    }
+  ],
+  "dialectical_debate": [
+    {
+      "agent": "dialectical_debate",
+      "seed": 100,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 101,
+      "success": true,
+      "steps": 31,
+      "reward": 0.69,
+      "vetoed_actions": 0,
+      "proposals": 31
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 102,
+      "success": true,
+      "steps": 27,
+      "reward": 0.73,
+      "vetoed_actions": 0,
+      "proposals": 27
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 103,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 104,
+      "success": true,
+      "steps": 9,
+      "reward": 0.91,
+      "vetoed_actions": 0,
+      "proposals": 9
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 105,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 106,
+      "success": true,
+      "steps": 29,
+      "reward": 0.71,
+      "vetoed_actions": 0,
+      "proposals": 29
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 107,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 108,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 109,
+      "success": true,
+      "steps": 38,
+      "reward": 0.6199999999999999,
+      "vetoed_actions": 0,
+      "proposals": 38
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 110,
+      "success": true,
+      "steps": 13,
+      "reward": 0.87,
+      "vetoed_actions": 0,
+      "proposals": 13
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 111,
+      "success": true,
+      "steps": 28,
+      "reward": 0.72,
+      "vetoed_actions": 0,
+      "proposals": 28
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 112,
+      "success": true,
+      "steps": 45,
+      "reward": 0.5499999999999998,
+      "vetoed_actions": 0,
+      "proposals": 45
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 113,
+      "success": true,
+      "steps": 29,
+      "reward": 0.71,
+      "vetoed_actions": 0,
+      "proposals": 29
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 114,
+      "success": true,
+      "steps": 2,
+      "reward": 0.98,
+      "vetoed_actions": 0,
+      "proposals": 2
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 115,
+      "success": true,
+      "steps": 26,
+      "reward": 0.74,
+      "vetoed_actions": 0,
+      "proposals": 26
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 116,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 117,
+      "success": true,
+      "steps": 38,
+      "reward": 0.6199999999999999,
+      "vetoed_actions": 0,
+      "proposals": 38
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 118,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 119,
+      "success": true,
+      "steps": 30,
+      "reward": 0.7,
+      "vetoed_actions": 0,
+      "proposals": 30
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 120,
+      "success": true,
+      "steps": 26,
+      "reward": 0.74,
+      "vetoed_actions": 0,
+      "proposals": 26
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 121,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 122,
+      "success": false,
+      "steps": 50,
+      "reward": -0.5000000000000002,
+      "vetoed_actions": 0,
+      "proposals": 50
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 123,
+      "success": true,
+      "steps": 32,
+      "reward": 0.6799999999999999,
+      "vetoed_actions": 0,
+      "proposals": 32
+    },
+    {
+      "agent": "dialectical_debate",
+      "seed": 124,
+      "success": true,
+      "steps": 24,
+      "reward": 0.7599999999999999,
+      "vetoed_actions": 0,
+      "proposals": 24
+    }
+  ]
+}
