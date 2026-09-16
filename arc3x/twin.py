@@ -201,7 +201,25 @@ class Twin:
                 else:
                     out.append(Act(aid))
         except Exception:
-            return ()
+            pass
+
+        # Fallback if engine introspection returned no valid actions (e.g. su15)
+        if not out:
+            try:
+                avail = getattr(game, "_available_actions", None) or []
+                for a in avail:
+                    aid = int(getattr(a, "value", a))
+                    if 1 <= aid <= 5:
+                        out.append(Act(aid))
+                    elif aid == 6:
+                        level = getattr(game, "current_level", None)
+                        if level and hasattr(level, "_sprites"):
+                            for s in level._sprites:
+                                if getattr(s, "visible", True):
+                                    out.append(Act(6, int(getattr(s, "_x", 0)), int(getattr(s, "_y", 0))))
+            except Exception:
+                pass
+
         # Dedupe, keeping the engine's deterministic order.
         seen: set[Act] = set()
         uniq: list[Act] = []
