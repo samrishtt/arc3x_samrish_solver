@@ -9,6 +9,8 @@ Welcome! This document provides an **instant-lookup catalog** with clickable lin
 | Resource | Path | Description |
 | :--- | :--- | :--- |
 | **Primary Submission Notebook** | [kaggle_arc3_submission.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_submission.ipynb) | 19-cell self-contained notebook bundling Dialectical Debate, Neural Student, and embedded 25-game plans. Outputs `submission.parquet` and `submission.csv`. |
+| **Ultra-Slim Submission Notebook** | [kaggle_arc3_slim_submission.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_slim_submission.ipynb) | Only 4 cells (14 KB)! Loads skills directly from attached Kaggle dataset bundle. |
+| **Kaggle Skills Dataset Zip** | [dist/arc3x_skills_bundle.zip](file:///d:/AI_ARMY/arc_agi3_solver/dist/arc3x_skills_bundle.zip) | 1-click uploadable Kaggle Dataset package containing `arc3x/`, `world_model_lab/`, and `plans.json`. |
 | **Production Notebook Copy** | [arc3x_submission.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/arc3x_submission.ipynb) | Identical production copy for backup and alternative kernel deployment. |
 | **Notebooks Directory** | [notebooks/](file:///d:/AI_ARMY/arc_agi3_solver/notebooks/) | Folder containing all competition notebooks, including [arc3_apex_solver_v20.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/notebooks/arc3_apex_solver_v20.ipynb). |
 | **Online API Evaluator** | [run_arc3_online_eval.py](file:///d:/AI_ARMY/arc_agi3_solver/run_arc3_online_eval.py) | Standalone client that connects to the live ARC-AGI-3 API using an API key to benchmark and generate official scorecards. |
