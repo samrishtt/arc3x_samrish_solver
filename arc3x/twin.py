@@ -83,10 +83,10 @@ class Obs:
     """What the searcher sees after a step. ``frame`` is the final 64x64 grid."""
 
     frame: np.ndarray
-    level: int
-    score: int
-    state: Any
-    valid: tuple[Act, ...]
+    level: int = 0
+    score: int = 0
+    state: Any = None
+    valid: tuple[Act, ...] = ()
     n_frames: int = 1
 
     @property

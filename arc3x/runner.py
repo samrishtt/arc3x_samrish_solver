@@ -266,7 +266,7 @@ def play_game(
                 break
             if debate_agent is not None:
                 from arc3x.twin import Obs
-                obs_wrap = Obs(frame=frame, level=level, valid=tuple(legal), score=0.0)
+                obs_wrap = Obs(frame=frame, level=level, score=0, state=None, valid=tuple(legal))
                 policy_fn = student.prior if student is not None else None
                 a = debate_agent.decide_action(obs_wrap, policy_fn=policy_fn)
             elif student is not None:
