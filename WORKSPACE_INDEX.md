@@ -8,11 +8,13 @@ Welcome! This document provides an **instant-lookup catalog** with clickable lin
 
 | Resource | Path | Description |
 | :--- | :--- | :--- |
-| **Primary Submission Notebook** | [kaggle_arc3_submission.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_submission.ipynb) | 19-cell self-contained notebook bundling Dialectical Debate, Neural Student, and embedded 25-game plans. Outputs `submission.parquet` and `submission.csv`. |
+| **Option B (Premier Neural Solver)** | [kaggle_arc3_duck_dialectic_solver.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_duck_dialectic_solver.ipynb) | High-scoring frontier neural solver: Qwen 3.8-Flash-Next-NVFP4 on Nvidia RTX Pro 6000 + Dialectical System 1/System 2 World Model + TAAF Transfer. |
+| **Option A (Standalone Offline)** | [kaggle_arc3_submission.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_submission.ipynb) | 19-cell self-contained notebook bundling Dialectical Debate, Neural Student, and embedded 25-game plans. Outputs `submission.parquet` and `submission.csv`. |
 | **Ultra-Slim Submission Notebook** | [kaggle_arc3_slim_submission.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_slim_submission.ipynb) | Only 4 cells (14 KB)! Loads skills directly from attached Kaggle dataset bundle. |
 | **Kaggle Skills Dataset Zip** | [dist/arc3x_skills_bundle.zip](file:///d:/AI_ARMY/arc_agi3_solver/dist/arc3x_skills_bundle.zip) | 1-click uploadable Kaggle Dataset package containing `arc3x/`, `world_model_lab/`, and `plans.json`. |
 | **Production Notebook Copy** | [arc3x_submission.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/arc3x_submission.ipynb) | Identical production copy for backup and alternative kernel deployment. |
-| **Notebooks Directory** | [notebooks/](file:///d:/AI_ARMY/arc_agi3_solver/notebooks/) | Folder containing all competition notebooks, including [arc3_apex_solver_v20.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/notebooks/arc3_apex_solver_v20.ipynb). |
+| **Notebooks Directory** | [notebooks/](file:///d:/AI_ARMY/arc_agi3_solver/notebooks/) | Folder containing all competition notebooks, including [arc3_apex_solver_v20.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/notebooks/arc3_apex_solver_v20.ipynb) and [kaggle_arc3_duck_dialectic_solver.ipynb](file:///d:/AI_ARMY/arc_agi3_solver/notebooks/kaggle_arc3_duck_dialectic_solver.ipynb). |
+| **Dialectical Qwen-3.8 Architecture** | [docs/DIALECTIC_QWEN38_ARCHITECTURE.md](file:///d:/AI_ARMY/arc_agi3_solver/docs/DIALECTIC_QWEN38_ARCHITECTURE.md) | Technical blueprint connecting Qwen-3.8-Flash-Next-NVFP4 with the Dialectical Multi-Agent System 2 reasoning loop. |
 | **Online API Evaluator** | [run_arc3_online_eval.py](file:///d:/AI_ARMY/arc_agi3_solver/run_arc3_online_eval.py) | Standalone client that connects to the live ARC-AGI-3 API using an API key to benchmark and generate official scorecards. |
 | **Pre-Computed Plans** | [arc3x/plans.json](file:///d:/AI_ARMY/arc_agi3_solver/arc3x/plans.json) | High-scoring, verified solution action sequences for all 25 game families. |
 

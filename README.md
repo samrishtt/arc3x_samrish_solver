@@ -193,6 +193,19 @@ python -m world_model_lab.benchmarks.report_generator
 ```
 *Generates procedural environments, logs per-seed trajectories to `experiments/data/`, and outputs a formatted Markdown report to `docs/EMPIRICAL_BENCHMARK_REPORT.md`.*
 
+## 🏆 ARC-AGI-3 Competition Solvers (ARC Prize 2026)
+
+This repository provides two deployment pathways for the official Kaggle ARC-AGI-3 competition:
+
+| Option | Notebook | Hardware | Strategy & Architecture |
+| :--- | :--- | :--- | :--- |
+| **Option B (Premier Neural Solver)** | [`kaggle_arc3_duck_dialectic_solver.ipynb`](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_duck_dialectic_solver.ipynb) | **Nvidia RTX Pro 6000 (48 GB)** | **27B Frontier Foundation Model (`Qwen3.8-Flash-Next-NVFP4`)** served via high-throughput vLLM with MTP 3-token speculative decoding. Injects the **Dialectical Multi-Agent System 2 (Proposer vs Critic)** reasoning protocol and in-sandbox mental BFS simulation. Incorporates TAAF Transfer and ShortCircuit no-op trimming. |
+| **Option A (Standalone Offline)** | [`kaggle_arc3_submission.ipynb`](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_submission.ipynb) | Pure CPU / T4 | 19-cell self-contained offline solver featuring hardcoded verified solution plans for all 25 public families and offline twin simulation. |
+
+For deep technical architecture details, see:
+- [Dialectical Qwen-3.8 Architecture Blueprint](file:///d:/AI_ARMY/arc_agi3_solver/docs/DIALECTIC_QWEN38_ARCHITECTURE.md)
+- [Master Workspace Index](file:///d:/AI_ARMY/arc_agi3_solver/WORKSPACE_INDEX.md)
+
 ---
 
 ## 👤 Author & Acknowledgments
@@ -201,3 +214,4 @@ python -m world_model_lab.benchmarks.report_generator
 - **Research Topic:** Autonomous World Modeling, Active Experimentation & Epistemic Agency
 - **Target Venues:** MIT ARC Prize Research Summit 2026, IRIS National Science Fair 2026
 - **License:** [MIT License](LICENSE)
+
