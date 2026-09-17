@@ -207,6 +207,7 @@ def play_game(
     graded_game_id: str,
     action_cap: int = 800,
     student: Any | None = None,
+    debate_agent: Any | None = None,
     rng: np.random.Generator | None = None,
     verbose: bool = True,
 ) -> PlayResult:
@@ -258,12 +259,17 @@ def play_game(
 
     # -- rungs 2 and 3: act on live frames, no cloning required ------------
     if (fam is None or not fam.plan or diverged_at is not None) and used < action_cap:
-        source = "student" if student is not None else "random"
+        source = "debate" if debate_agent is not None else ("student" if student is not None else "random")
         while used < action_cap:
             legal = list(graded.valid())
             if not legal:
                 break
-            if student is not None:
+            if debate_agent is not None:
+                from arc3x.twin import Obs
+                obs_wrap = Obs(frame=frame, level=level, valid=tuple(legal), score=0.0)
+                policy_fn = student.prior if student is not None else None
+                a = debate_agent.decide_action(obs_wrap, policy_fn=policy_fn)
+            elif student is not None:
                 p = student.prior(frame, legal)
                 a = legal[int(rng.choice(len(legal), p=p))]
             else:
@@ -310,6 +316,13 @@ def gateway_as_graded(env: Any) -> GradedGame:
     from arc3x.twin import ACTION_BY_ID
 
     def _obs(fd: Any) -> Any:
+        if fd is None:
+            return _GatedObs(
+                frame=np.zeros((64, 64), dtype=np.int8),
+                level=0,
+                terminal=True,
+                raw=None,
+            )
         frames = getattr(fd, "frame", None) or []
         frame = (
             np.asarray(frames[-1], dtype=np.int8)
@@ -327,7 +340,9 @@ def gateway_as_graded(env: Any) -> GradedGame:
     last: dict[str, Any] = {"fd": None}
 
     def _reset() -> Any:
-        fd = env.reset()
+        fd = getattr(env, "observation_space", None)
+        if fd is None:
+            fd = env.reset()
         last["fd"] = fd
         return _obs(fd)
 

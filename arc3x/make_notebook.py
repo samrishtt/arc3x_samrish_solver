@@ -177,17 +177,26 @@ import json
 import pandas as pd
 
 from arc3x.runner import build_families, gateway_as_graded, twin_as_graded, play_game
+import os
+import sys
+import time
+from urllib.request import urlopen
+from pathlib import Path
+import numpy as np
+import json
+import pandas as pd
+
+from arc3x.runner import build_families, gateway_as_graded, twin_as_graded, play_game
 from arc3x.explore import game_score
 from arc3x.debate import DialecticalDebateAgent
 
-BASE_URL = os.environ.get("ARC_BASE_URL", "http://gateway:8001")
+BASE_URL = os.environ.get("ARC_BASE_URL", "http://gateway:8001/")
 ACTION_CAP = int(os.environ.get("ARC3X_ACTION_CAP", 800))
 IS_RERUN = os.environ.get("KAGGLE_IS_COMPETITION_RERUN", "").strip().lower() in {"1", "true"}
 
 families = build_families(Path(ENV_DIR) if ENV_DIR else None, plans_path="/kaggle/working/plans.json")
 print(f"{len(families)} families loaded, {sum(1 for f in families if f.plan)} with plans")
 
-# Initialize Dialectical Debate Agent
 debate_agent = DialecticalDebateAgent(seed=42)
 
 student = None
@@ -201,80 +210,108 @@ except Exception as exc:
     print(f"no student policy ({type(exc).__name__}); fallback is Dialectical Debate agent")
 
 
-def check_gateway(url: str, timeout: float = 3.0) -> bool:
-    try:
-        p = urlparse(url)
-        host = p.hostname or "gateway"
-        port = p.port or 8001
-        with socket.create_connection((host, port), timeout=timeout):
-            return True
-    except Exception:
-        return False
+def wait_for_gateway(base_url: str, timeout_s: float = 360.0) -> bool:
+    endpoint = f"{base_url.rstrip('/')}/api/games"
+    print(f"Polling competition gateway at {endpoint} (timeout: {timeout_s}s)...", flush=True)
+    deadline = time.monotonic() + timeout_s
+    last_err = ""
+    while time.monotonic() < deadline:
+        try:
+            with urlopen(endpoint, timeout=10) as resp:
+                if resp.status < 300:
+                    print(f"Connected to competition gateway (HTTP {resp.status})!", flush=True)
+                    return True
+        except Exception as exc:
+            last_err = repr(exc)
+        time.sleep(5)
+    print(f"Gateway did not become ready within {timeout_s}s: {last_err}", flush=True)
+    return False
 
-
-# If in competition rerun, wait up to 45s for gateway to boot
-has_gateway = check_gateway(BASE_URL, timeout=2.0)
-if not has_gateway and IS_RERUN:
-    print("Waiting for competition gateway to become ready...")
-    for _ in range(15):
-        time.sleep(3)
-        if check_gateway(BASE_URL, timeout=2.0):
-            has_gateway = True
-            break
 
 played, rng = [], np.random.default_rng(0)
 
 try:
-    if has_gateway:
-        print(f"Connected to live competition gateway at {BASE_URL}")
+    if IS_RERUN:
+        print("Competition rerun active (KAGGLE_IS_COMPETITION_RERUN=true).")
+        os.environ.setdefault("ARC_API_KEY", "test-key-123")
+        os.environ.setdefault("ARC_BASE_URL", "http://gateway:8001/")
+        os.environ.setdefault("SCHEME", "http")
+        os.environ.setdefault("HOST", "gateway")
+        os.environ.setdefault("PORT", "8001")
+        os.environ.setdefault("OPERATION_MODE", "competition")
+        os.environ.setdefault("ENVIRONMENTS_DIR", "")
+        os.environ.setdefault("RECORDINGS_DIR", str(Path("/kaggle/working/server_recording")))
+        os.environ["ONLY_RESET_LEVELS"] = "true"
+
+        gateway_ok = wait_for_gateway(os.environ["ARC_BASE_URL"], timeout_s=360.0)
+        if not gateway_ok:
+            raise RuntimeError("Fatal: Competition gateway did not become ready during competition rerun.")
+
         import arc_agi
         from arc_agi import OperationMode
 
         arcade = arc_agi.Arcade(
             operation_mode=OperationMode.COMPETITION,
-            arc_base_url=BASE_URL,
+            arc_base_url=os.environ["ARC_BASE_URL"],
+            arc_api_key=os.environ.get("ARC_API_KEY", "test-key-123"),
             environments_dir="",
         )
         card = arcade.create_scorecard()
-        envs = arcade.get_environments()
-        print(f"gateway offers {len(envs)} runs")
+        envs = arcade.available_environments or arcade.get_environments()
+        print(f"Scorecard {card} created. Gateway exposes {len(envs)} competition games.")
 
         for i, info in enumerate(envs):
             gid = info.game_id
             try:
                 env = arcade.make(gid, scorecard_id=card)
                 if env is None:
-                    print(f"  [{i+1}/{len(envs)}] {gid}: make() returned None"); continue
-                res = play_game(gateway_as_graded(env), families, graded_game_id=gid,
-                                action_cap=ACTION_CAP, student=student, rng=rng)
+                    print(f"  [{i+1}/{len(envs)}] {gid}: make() returned None")
+                    continue
+                res = play_game(
+                    gateway_as_graded(env),
+                    families,
+                    graded_game_id=gid,
+                    action_cap=ACTION_CAP,
+                    student=student,
+                    debate_agent=debate_agent,
+                    rng=rng,
+                )
                 played.append(res)
-                print(f"  [{i+1}/{len(envs)}] {gid} fam={res.family} via={res.how} "
-                      f"src={res.source} actions={res.actions_used} "
-                      f"levels={res.levels_reached}"
-                      + (f" DIVERGED@{res.diverged_at}" if res.diverged_at is not None else ""))
+                print(
+                    f"  [{i+1}/{len(envs)}] {gid} fam={res.family} via={res.how} "
+                    f"src={res.source} actions={res.actions_used} levels={res.levels_reached}"
+                )
             except Exception as exc:
                 print(f"  [{i+1}/{len(envs)}] {gid}: {type(exc).__name__}: {exc}")
 
         try:
             arcade.close_scorecard(card)
-            print("Scorecard closed and submitted successfully.")
+            print(f"Scorecard {card} closed and submitted successfully.")
         except Exception as exc:
-            print(f"close_scorecard: {type(exc).__name__}: {exc}")
+            print(f"close_scorecard error: {type(exc).__name__}: {exc}")
 
     else:
-        print("No competition gateway detected (interactive/draft mode).")
+        print("Interactive / draft mode (KAGGLE_IS_COMPETITION_RERUN not set).")
         print("Running offline self-verification across all 25 game families...")
         from arc3x.explore import discover_games
         test_games = discover_games(Path(ENV_DIR)) if ENV_DIR else []
         for i, gid in enumerate(test_games):
             try:
                 graded = twin_as_graded(gid, Path(ENV_DIR))
-                res = play_game(graded, families, graded_game_id=gid,
-                                action_cap=ACTION_CAP, student=student, rng=rng)
+                res = play_game(
+                    graded,
+                    families,
+                    graded_game_id=gid,
+                    action_cap=ACTION_CAP,
+                    student=student,
+                    debate_agent=debate_agent,
+                    rng=rng,
+                )
                 played.append(res)
-                print(f"  [{i+1}/{len(test_games)}] {gid} fam={res.family} via={res.how} "
-                      f"src={res.source} actions={res.actions_used} "
-                      f"levels={res.levels_reached}")
+                print(
+                    f"  [{i+1}/{len(test_games)}] {gid} fam={res.family} via={res.how} "
+                    f"src={res.source} actions={res.actions_used} levels={res.levels_reached}"
+                )
             except Exception as exc:
                 print(f"  [{i+1}/{len(test_games)}] {gid}: {type(exc).__name__}: {exc}")
 
