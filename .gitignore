@@ -36,3 +36,10 @@ Thumbs.db
 .venv/
 env/
 venv/
+
+# Large binaries and local scratch
+archive/
+datasets/
+experiments/
+tools/
+

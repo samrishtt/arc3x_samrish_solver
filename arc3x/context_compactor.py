@@ -40,12 +40,9 @@ class ContextCompactor:
         # Generate compact summary message
         dsl_str = world_model_dsl or "State tracking active"
         summary_text = (
-            f"[ASTRA COMPACTED MEMORY - Level {self.level_id}]
-"
-            f"Actions spent: {self.total_actions} | Deaths: {self.deaths}
-"
-            f"Symbolic World Model: {dsl_str}
-"
+            f"[ASTRA COMPACTED MEMORY - Level {self.level_id}]\n"
+            f"Actions spent: {self.total_actions} | Deaths: {self.deaths}\n"
+            f"Symbolic World Model: {dsl_str}\n"
             f"(Prior turns pruned to maintain optimal reasoning focus.)"
         )
         summary_msg = {"role": "system", "content": summary_text}
