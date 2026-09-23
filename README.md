@@ -212,6 +212,7 @@ Across 7 major version cycles, we systematically explored whether sophisticated 
 | **V18** | 13-Agent ECC Swarm (Spatial HUD + Coordinator) | **5.68** (18/25 solved) | **1.56** | Completed; High public performance failed to transfer to hidden private games |
 | **V19** | Level Climber: 57K Context Expansion + Autopilot | 0.87 (Aborted) | *Not Submitted* | **Failure:** vLLM 500 OOM errors; Autopilot burned action budget blindly |
 | **V20** | Astra-Apex: Clamped 28K Context, Disabled Autopilot | **5.02** (21/25 solved) | **1.43** | Completed cleanly; Confirmed hard mathematical ceiling of compressed model |
+| **V21** | The 27B Giant: Qwen3.8-27B-FP8 + Resilient 28K Clamping | *Deploying* | **Target: LB 9+** | **Active:** Migrated to proven 27B FP8 foundation model (`foysalemonshanto/qwen3-8-27b-fp8-repacked-v1`) with 102 GB VRAM utilization |
 
 > **Comprehensive Technical Post-Mortem:** For line-by-line trajectory logs, viewer replay audits, and failure diagnostics, see [`docs/COMPETITION_POST_MORTEM_V14_V20.md`](docs/COMPETITION_POST_MORTEM_V14_V20.md).
 
