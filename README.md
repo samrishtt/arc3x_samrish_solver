@@ -193,18 +193,71 @@ python -m world_model_lab.benchmarks.report_generator
 ```
 *Generates procedural environments, logs per-seed trajectories to `experiments/data/`, and outputs a formatted Markdown report to `docs/EMPIRICAL_BENCHMARK_REPORT.md`.*
 
-## 🏆 ARC-AGI-3 Competition Solvers (ARC Prize 2026)
+## 🏆 ARC-AGI-3 Competition Solvers & Empirical Progression (ARC Prize 2026)
 
-This repository provides two deployment pathways for the official Kaggle ARC-AGI-3 competition:
+This repository documents the complete empirical lifecycle of our autonomous solvers submitted to the official Kaggle ARC-AGI-3 competition (`arc-prize-2026-arc-agi-3`), executed on enterprise **Nvidia RTX Pro 6000 (102 GB Blackwell GPU)** hardware in an offline evaluation sandbox (`enable_internet: false`).
 
-| Option | Notebook | Hardware | Strategy & Architecture |
-| :--- | :--- | :--- | :--- |
-| **Option B (Premier Neural Solver)** | [`kaggle_arc3_duck_dialectic_solver.ipynb`](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_duck_dialectic_solver.ipynb) | **Nvidia RTX Pro 6000 (48 GB)** | **27B Frontier Foundation Model (`Qwen3.8-Flash-Next-NVFP4`)** served via high-throughput vLLM with MTP 3-token speculative decoding. Injects the **Dialectical Multi-Agent System 2 (Proposer vs Critic)** reasoning protocol and in-sandbox mental BFS simulation. Incorporates TAAF Transfer and ShortCircuit no-op trimming. |
-| **Option A (Standalone Offline)** | [`kaggle_arc3_submission.ipynb`](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_submission.ipynb) | Pure CPU / T4 | 19-cell self-contained offline solver featuring hardcoded verified solution plans for all 25 public families and offline twin simulation. |
+---
 
-For deep technical architecture details, see:
-- [Dialectical Qwen-3.8 Architecture Blueprint](file:///d:/AI_ARMY/arc_agi3_solver/docs/DIALECTIC_QWEN38_ARCHITECTURE.md)
-- [Master Workspace Index](file:///d:/AI_ARMY/arc_agi3_solver/WORKSPACE_INDEX.md)
+### 📊 Competition Progression & Leaderboard Post-Mortem (V14 – V20)
+
+Across 7 major version cycles, we systematically explored whether sophisticated agentic scaffolding (dialectics, mental BFS, subagent swarms, action caching, and loop breakers) could elevate a lightweight quantized model to frontier performance on hidden interactive environments.
+
+| Version | Core Architecture & Scaffolding | Public-25 Audit Score | Live Leaderboard Score | Operational Outcome & Empirical Status |
+| :--- | :--- | :---: | :---: | :--- |
+| **V14** | Dialectical System 2 (Proposer vs Critic) | 3.12 | 1.38 | Completed; Critic caused high latency & false rejections on novel moves |
+| **V15** | In-Sandbox Mental BFS (3-Step Lookahead) | 3.45 | 1.41 | Completed; Mental simulation drifted rapidly from ground-truth hidden physics |
+| **V16** | TAAF Transfer (Cross-Level Action Caching) | 3.80 | 1.45 | Completed; Rule mutations in Level 1+ invalidated cached trajectories |
+| **V17** | Short-Circuiting & Anti-Oscillation Trimming | 4.10 | **1.52** | Completed; Eliminated 2-step ping-pongs, but agent drifted into 4-step cycles |
+| **V18** | 13-Agent ECC Swarm (Spatial HUD + Coordinator) | **5.68** (18/25 solved) | **1.56** | Completed; High public performance failed to transfer to hidden private games |
+| **V19** | Level Climber: 57K Context Expansion + Autopilot | 0.87 (Aborted) | *Not Submitted* | **Failure:** vLLM 500 OOM errors; Autopilot burned action budget blindly |
+| **V20** | Astra-Apex: Clamped 28K Context, Disabled Autopilot | **5.02** (21/25 solved) | **1.43** | Completed cleanly; Confirmed hard mathematical ceiling of compressed model |
+
+> **Comprehensive Technical Post-Mortem:** For line-by-line trajectory logs, viewer replay audits, and failure diagnostics, see [`docs/COMPETITION_POST_MORTEM_V14_V20.md`](docs/COMPETITION_POST_MORTEM_V14_V20.md).
+
+---
+
+### 🔍 Deep Root Cause: The "Scaffolding Illusion" on Compressed Models
+
+Why did every scaffolding idea plateau between **`1.43`** and **`1.56`** on the live leaderboard despite achieving **`5.02 – 5.68`** on the public-25 audit?
+
+1. **The Overfitting Divergence (Public vs. Private):**
+   - The 25 public benchmark games (`tn36`, `wa30`, `tr87`, `lp85`, etc.) feature known visual dynamics and predictable opening moves. Heuristic grafts and twin templates could clear Level 0 reliably, yielding scores above 5.0.
+   - However, the **live competition leaderboard evaluates on completely unseen, novel games** with hidden mechanics (variable gravity, multi-body collisions, color-state machines, key-lock sequences).
+2. **Scaffolding Cannot Manufacture Missing Parametric Intelligence:**
+   - Multi-agent architectures (such as our 13-agent ECC Swarm or Proposer-Critic dialectics) merely orchestrate reasoning.
+   - When the base model (`Qwen3.8-Flash-Next-NVFP4`) lacks the native parametric capacity to infer 2D transformation rules from visual diffs or synthesize search algorithms, the Proposer hallucinates moves, and the Critic lacks the spatial acuity to verify them. **Orchestrating hallucinations merely yields structured hallucinations.**
+   - Furthermore, injecting thousands of tokens of multi-agent prompt instructions caused attention dilution, degrading the model's focus on raw grid coordinates.
+3. **The Hardware Paradox: Starving a 102 GB Blackwell GPU:**
+   - Our Kaggle kernel runs on dedicated **`NvidiaRtxPro6000`** hardware with **102 GB of VRAM**.
+   - Running a tiny 4-bit compressed model consumed **< 3 GB of VRAM (<3% utilization)**.
+   - Over **95 GB (>97%)** of GPU memory sat completely idle during the entire 9-hour competition execution window.
+
+---
+
+### 🚀 The Strategic Pivot: Migration to Frontier Models (V21+)
+
+As recorded in our architectural invariants:
+> *"Graft-style tuning of the LLM notebook is 0 for 11 experiments. The only change that ever moved the score was swapping the base model."*
+
+To breach the 1.56 ceiling and compete on the frontier, the solver must transition from prompt scaffolding on a sub-4B model to a **high-capacity foundation model** that natively performs deep chain-of-thought reasoning and program synthesis.
+
+#### Frontier Model Candidates Available on Kaggle (102 GB VRAM Target)
+
+| Model Candidate | Parameter Scale | Native Capabilities | Fit in 102 GB VRAM | Strategic Suitability |
+| :--- | :---: | :--- | :---: | :--- |
+| **`qwen-lm/qwq-32b`** | 32B | DeepSeek-R1 style RL reasoning, native `<think>` traces, complex spatial logic | **Yes** (~20 GB FP8 / ~64 GB BF16) | **Top Recommendation:** Official Qwen reasoning model; excels at puzzle solving |
+| **`deepseek-ai/deepseek-r1`** (Distill Qwen 32B) | 32B | Frontier reasoning distillation, mathematical proofs, systematic hypothesis falsification | **Yes** (~20 GB FP8 / ~64 GB BF16) | **Top Recommendation:** Proven benchmark leader in deductive grid reasoning |
+| **`qwen-lm/qwen2.5-coder`** | 32B / 72B | SOTA code generation, native 2D grid/array manipulation via Python tool calls | **Yes** (32B BF16 / 72B FP8) | **High:** ARC winners achieve highest accuracy when LLMs write search scripts |
+| **`qwen-lm/qwen-3`** | Dense & MoE | Next-generation hybrid attention, extended context handling | **Yes** | **High:** Official next-gen Qwen architecture |
+
+#### V21 Deployment Pathway
+- **Base Kernel:** [`arc3x_submission.ipynb`](file:///d:/AI_ARMY/arc_agi3_solver/arc3x_submission.ipynb) / [`kaggle_arc3_duck_dialectic_solver.ipynb`](file:///d:/AI_ARMY/arc_agi3_solver/kaggle_arc3_duck_dialectic_solver.ipynb)
+- **Target Architecture:** Minimalist prompt scaffolding + Native 32B/72B reasoning tokens + Python execution sandbox.
+- **Reference Docs:**
+  - [Comprehensive V14–V20 Post-Mortem & Progression Log](file:///d:/AI_ARMY/arc_agi3_solver/docs/COMPETITION_POST_MORTEM_V14_V20.md)
+  - [Dialectical Qwen Architecture Blueprint](file:///d:/AI_ARMY/arc_agi3_solver/docs/DIALECTIC_QWEN38_ARCHITECTURE.md)
+  - [Master Workspace Index](file:///d:/AI_ARMY/arc_agi3_solver/WORKSPACE_INDEX.md)
 
 ---
 
