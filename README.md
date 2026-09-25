@@ -212,7 +212,8 @@ Across 7 major version cycles, we systematically explored whether sophisticated 
 | **V18** | 13-Agent ECC Swarm (Spatial HUD + Coordinator) | **5.68** (18/25 solved) | **1.56** | Completed; High public performance failed to transfer to hidden private games |
 | **V19** | Level Climber: 57K Context Expansion + Autopilot | 0.87 (Aborted) | *Not Submitted* | **Failure:** vLLM 500 OOM errors; Autopilot burned action budget blindly |
 | **V21** | The 27B Giant: Qwen3.8-27B-FP8 + Resilient 28K Clamping | **47.62** (ft09 clear) | **1.03** | Completed; Dense next-token predictor lacked test-time RL search, wandering impulsively |
-| **V22** | DeepSeek-R1 Reasoning Engine: 32B Distill (BF16) | *Deploying* | **Target: Frontier** | **Active:** Migrated to pure RL reasoning model (`deepseek-ai/deepseek-r1-distill-qwen-32b/2`) with native `<think>` shortest-path planning |
+| **V22** | DeepSeek-R1 32B Distill (BF16) First Run | Crashed (Disk full) | *Not Submitted* | **Diagnosed:** Loaded 61GB weights in 86s on GPU; crashed because TAAF sent PNG image to text-only model (`400: not a multimodal model`) |
+| **V23** | DeepSeek-R1 Symbolic Reasoning: 32B Distill (BF16) | *Deploying* | **Target: Frontier** | **Active:** Disabled `MULTIMODAL_CONTEXT` to pure discrete symbolic grid (`current_frame.segmentation` + ASCII + Python BFS) |
 
 > **Comprehensive Technical Post-Mortem:** For line-by-line trajectory logs, viewer replay audits, and failure diagnostics, see [`docs/COMPETITION_POST_MORTEM_V14_V20.md`](docs/COMPETITION_POST_MORTEM_V14_V20.md).
 
